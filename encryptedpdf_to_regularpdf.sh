@@ -95,6 +95,7 @@ if /opt/homebrew/bin/qpdf --is-encrypted "$PDF"; then
         echo "$(date) | DECRYPTION FAILED | $FILENAME | $SOURCE" >> "$LOGFILE"
         rm -f "$TMPFILE"
         echo "Decryption failed. Unable to process file: $PDF"
+        mark_as_encrypted
         exit 0
     fi
 else
