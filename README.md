@@ -62,7 +62,13 @@ security add-generic-password -a acme_corp -s PDFPassword -w 'mypassword123'
           chmod +x /path/to/encryptedpdf_to_regularpdf.sh
           ```
      2. Continue Matching Rules:
-        - Add an action called "Continue matching rules" after the "Run Shell Script" action. This ensures that Hazel evaluates subsequent rules for the same file. (If that is the desired behavior.)
+        - Add an action called "Continue matching rules" after the "Run Shell Script" action. This ensures that Hazel evaluates subsequent rules for the same file.
+
+### Prevent Double Processing
+❗️**Pro Tip: Prevent Double Processing**
+After Hazel runs your decryption script, the file is technically “changed” (decrypted and overwritten), which can re-trigger the same Hazel rule. To avoid that:
+- Set a Hazel condition to exclude files starting with `encrypted_`.
+- Alternatively, use a custom tag after successful decryption (e.g., “Decrypted”) and exclude it on future passes.
 
 ### 3. Verify Script Path
 Ensure the script is located in a directory accessible to Hazel. If necessary, hardcode the full path to `qpdf` in the script, as Hazel does not inherit the system `PATH`.
