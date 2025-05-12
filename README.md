@@ -51,12 +51,15 @@ security add-generic-password -a acme_corp -s PDFPassword -w 'mypassword123'
 2. Add a folder to monitor for encrypted PDFs.
 3. Create a new rule with the following conditions:
    - **If**: `Name` matches your desired pattern (e.g., `PDF_RPNT_*`).
-   - **Do the following**: Run Shell Script.
-     - Select the `encryptedpdf_to_regularpdf.sh` script.
-     - Ensure the script has executable permissions:
-       ```bash
-       chmod +x /path/to/encryptedpdf_to_regularpdf.sh
-       ```
+   - **Do the following**:
+     1. Run Shell Script:
+        - Select the `encryptedpdf_to_regularpdf.sh` script.
+        - Ensure the script has executable permissions:
+          ```bash
+          chmod +x /path/to/encryptedpdf_to_regularpdf.sh
+          ```
+     2. Continue Matching Rules:
+        - Add an action called "Continue matching rules" after the "Run Shell Script" action. This ensures that Hazel evaluates subsequent rules for the same file. (If that is the desired behavior.)
 
 ### 3. Verify Script Path
 Ensure the script is located in a directory accessible to Hazel. If necessary, hardcode the full path to `qpdf` in the script, as Hazel does not inherit the system `PATH`.
