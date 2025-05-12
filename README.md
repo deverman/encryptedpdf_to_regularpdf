@@ -10,6 +10,9 @@ This script is designed to work with Hazel rules to automatically decrypt encryp
 
 ---
 
+### Note on Hazel 6.0
+As of Hazel 6.0, Hazel includes the ability to read encrypted PDFs. However, this script was created because encrypted PDFs are often impractical. It is easy to forget the password or lose the email containing it, making the files inaccessible. This script simplifies the process by decrypting PDFs and replacing the encrypted versions with usable files.
+
 ## Important Assumptions
 - **File Replacement**: The script assumes that replacing the encrypted file with the decrypted version is acceptable. If you need to keep the original encrypted file, you must modify the script accordingly.
 - **Keychain Passwords**: The script assumes that all required passwords are stored in the macOS Keychain under the `PDFPassword` service. If a password is missing, the file will not be decrypted, and its name will be prefixed with `encrypted_`.
