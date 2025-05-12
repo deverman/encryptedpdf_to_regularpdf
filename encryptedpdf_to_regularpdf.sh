@@ -53,8 +53,8 @@ echo "Hazel asked to examine the file: $FILENAME"
 # Match based on filename
 if [[ "$FILENAME" == *"PDF_RPNT_"* ]]; then
     COMPANY="singtel"
-# elif [[ "$FILENAME" == *"globex"* ]]; then
-#    COMPANY="globex"
+elif [[ "$FILENAME" == *"PDF2_RPNT_"* ]]; then
+    COMPANY="singtelold"
 # Match based on download source
 # elif echo "$SOURCE" | grep -qi 'acmebank.com'; then
 #    COMPANY="acme_corp"
