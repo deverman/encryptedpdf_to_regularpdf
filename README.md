@@ -49,6 +49,20 @@ Example:
 security add-generic-password -a acme_corp -s PDFPassword -w 'mypassword123'
 ```
 
+## 1a. Deleting Passwords from Keychain
+
+If you have added the wrong password to the keychain you can delete the password by running the following command:
+```bash
+security delete-generic-password -a <account_name>
+```
+- Replace `<account_name>` with the identifier for the company or source (e.g., `acme_corp`).
+
+Example:
+```bash
+security delete-generic-password -a acme_corp
+```
+
+
 ### 2. Configure Hazel Rule
 1. Open Hazel Preferences.
 2. Add a folder to monitor for encrypted PDFs.
